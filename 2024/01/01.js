@@ -14,10 +14,8 @@ originalPairStrings.forEach(ops => {
 leftList.sort();
 rightList.sort();
 
-let listDifference = 0;
-
-leftList.forEach((leftLocId, index) => {
-    listDifference = listDifference + Math.abs(leftLocId - rightList[index]);
-});
+const listDifference = leftList.reduce((prev, leftLocId, index) => {
+    return prev + Math.abs(leftLocId - rightList[index]);
+}, 0);
 
 console.log(listDifference);
