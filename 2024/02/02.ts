@@ -6,6 +6,13 @@ const reports = originalReportStrings.map((rs) =>
   rs.split(" ").map((s) => parseInt(s)),
 );
 
+let counts = 0;
+reports.forEach((report) => {
+  counts += +isSafe(report);
+});
+
+console.log(counts);
+
 function isSafe(nums: number[], nErrs = 0): boolean {
   const ascending = nums[1] > nums[0];
 
@@ -31,10 +38,3 @@ function isSafe(nums: number[], nErrs = 0): boolean {
   }
   return true;
 }
-
-let counts = 0;
-reports.forEach((report) => {
-  counts += +isSafe(report);
-});
-
-console.log(counts);
