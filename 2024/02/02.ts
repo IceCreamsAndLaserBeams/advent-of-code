@@ -1,7 +1,8 @@
-import readFile from "../../util/readFile.ts";
+import { readFileLines } from "../../util/readFile.ts";
+
 import path from "path";
 
-const originalReportStrings = readFile(path.join(__dirname, "input.txt"));
+const originalReportStrings = readFileLines(path.join(__dirname, "input.txt"));
 const reports = originalReportStrings.map((rs) =>
   rs.split(" ").map((s) => parseInt(s)),
 );

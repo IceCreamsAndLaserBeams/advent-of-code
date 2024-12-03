@@ -1,11 +1,14 @@
 import fs from "fs";
 
-const readFile = (filePath: string) => {
-  const data = fs.readFileSync(filePath, { encoding: "utf8", flag: "r" });
-  let dataArr = data.split("\n");
-  dataArr.pop();
-
-  return dataArr;
+const readFileLines = (filePath: string) => {
+  const data = fs
+    .readFileSync(filePath, { encoding: "utf8", flag: "r" })
+    .trimEnd();
+  return data.split("\n");
 };
 
-export default readFile;
+const readFile = (filePath: string) => {
+  return fs.readFileSync(filePath, { encoding: "utf8", flag: "r" }).trimEnd();
+};
+
+export { readFileLines, readFile };

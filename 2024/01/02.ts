@@ -1,7 +1,7 @@
 import * as path from "path";
-import readFile from "../../util/readFile.ts";
+import { readFileLines } from "../../util/readFile.ts";
 
-const originalPairStrings = readFile(path.join(__dirname, "input.txt"));
+const originalPairStrings = readFileLines(path.join(__dirname, "input.txt"));
 const leftList: number[] = [];
 const rightList: number[] = [];
 
